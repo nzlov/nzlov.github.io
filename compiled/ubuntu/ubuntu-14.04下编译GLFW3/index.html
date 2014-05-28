@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ubuntu 14.04下编译GLFW3</title>
+  
+    <meta name="author" content="nzlov">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">迷的小屋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">年轮</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">标签</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">种类</a></li>
+
+
+            
+              
+
+
+  <li><a href="/pages">叶子</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">关于我</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>ubuntu 14.04下编译GLFW3 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>1、安装cmake cmake－gui</p>
+
+<pre><code>sudo apt-get install cmake cmake-gui
+</code></pre>
+
+<p>　　2、使用cmake生成Makefile</p>
+
+<pre><code>打开cmake gui，选择glfw3根目录，设置生成目录，然后点击“Configure”生成配置然后勾选“BUILD_SHARED_LIBS”，并修改“CMAKE_INSTALL_PREFIX”为“/usr”。再次点击“Configure”，然后点“Generate”。
+</code></pre>
+
+<p>　　3、make，make install</p>
+
+<pre><code>使用terminal进入Makefile的生成目录，执行 “make” ，完成后再执行“sudo make install”完成安装。
+</code></pre>
+
+<p>　 4、</p>
+
+<pre><code>go get -u github.com/go-gl/glfw3
+</code></pre>
+
+<p>　　注意：</p>
+
+<pre><code>如果报错 “The RandR library and headers were not found”则需要在terminal里执行“sudo apt-get install libxrandr-dev”
+
+如果报错 “The XInput library and headers were not found”则需要在terminal里执行“sudo apt-get install libxi-dev”
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/动态口令/%E5%8A%A8%E6%80%81%E5%8F%A3%E4%BB%A4%E7%B3%BB%E7%BB%9F/" title="动态口令系统">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/cocos2d/cocos2d-html5%E4%BD%BF%E7%94%A8Ant%E6%B7%B7%E6%B7%86%E5%8E%8B%E7%BC%A9/" title="cocos2d-html5使用Ant混淆压缩">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2014-05-28</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#ubuntu-ref">ubuntu <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/categories/#golang-ref">golang <span>5</span></a>
+</li>
+    
+      <li>
+  <a href="/categories/#opengl-ref">opengl <span>1</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#golang-ref">golang <span>5</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#ubuntu-ref">ubuntu <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; nzlov 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

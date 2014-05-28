@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>迷的小屋</title>
+  
+    <meta name="description" content="首页">
+  
+    <meta name="author" content="nzlov">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">迷的小屋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">年轮</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">标签</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">种类</a></li>
+
+
+            
+              
+
+
+  <li><a href="/pages">叶子</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">关于我</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>迷的小屋 </h1>
+</div>
+
+<div class="row">
+  <div class="span12">
+    
+<h2>最近更新</h2>
+
+
+<div class="post">
+  <h3 class="title"><a href="/golang/%E6%8A%8AGo%E7%A8%8B%E5%BA%8F%E5%8F%98%E5%B0%8F%E7%9A%84%E5%8A%9E%E6%B3%95/">把Go程序变小的办法</a> <span class="date">2014-05-28</span></h3>
+
+  <p>把Go程序变小的办法是：</p>
+
+<pre><code>go build -ldflags “-s -w” (go install类似)
+</code></pre>
+
+<p>-s 去掉符号表（然后panic时候的stack trace就没有任何文件名/行号信息了，
+这个等价于普通C/C++程序被strip的效果）</p>
+
+<p>-w 去掉DWARF调试信息，得到的程序就不能用gdb调试了。</p>
+
+<p>比如，server.go是一个简单的http server，用了<code>net/http</code>包。</p>
+
+<pre><code>$ go build server.go
+$ ls -l server
+-rwxr-xr-x 1 minux staff 4507004 2012-10-25 14:16 server
+$ go build -ldflags “-s -w” server.go 
+$ ls -l server
+-rwxr-xr-x 1 minux staff 2839932 2012-10-25 14:16 server
+</code></pre>
+
+
+  <div class="more">
+    <a href="/golang/%E6%8A%8AGo%E7%A8%8B%E5%BA%8F%E5%8F%98%E5%B0%8F%E7%9A%84%E5%8A%9E%E6%B3%95/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/动态口令/%E5%8A%A8%E6%80%81%E5%8F%A3%E4%BB%A4%E7%B3%BB%E7%BB%9F/">动态口令系统</a> <span class="date">2014-05-28</span></h3>
+
+  <ol>
+<li>HOTP(事件OTP)</li>
+<li>RFC4226</li>
+<li>TOTP(时间OTP)</li>
+<li>RFC6238</li>
+<li>OCRA(挑战与应答OTP)</li>
+<li>RFC6287</li>
+</ol>
+
+
+  <div class="more">
+    <a href="/动态口令/%E5%8A%A8%E6%80%81%E5%8F%A3%E4%BB%A4%E7%B3%BB%E7%BB%9F/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/ubuntu/ubuntu-14.04%E4%B8%8B%E7%BC%96%E8%AF%91GLFW3/">ubuntu 14.04下编译GLFW3</a> <span class="date">2014-05-28</span></h3>
+
+  <p>1、安装cmake cmake－gui</p>
+
+<pre><code>sudo apt-get install cmake cmake-gui
+</code></pre>
+
+<p>　　2、使用cmake生成Makefile</p>
+
+<pre><code>打开cmake gui，选择glfw3根目录，设置生成目录，然后点击“Configure”生成配置然后勾选“BUILD_SHARED_LIBS”，并修改“CMAKE_INSTALL_PREFIX”为“/usr”。再次点击“Configure”，然后点“Generate”。
+</code></pre>
+
+<p>　　3、make，make install</p>
+
+<pre><code>使用terminal进入Makefile的生成目录，执行 “make” ，完成后再执行“sudo make install”完成安装。
+</code></pre>
+
+<p>　 4、</p>
+
+<pre><code>go get -u github.com/go-gl/glfw3
+</code></pre>
+
+<p>　　注意：</p>
+
+<pre><code>如果报错 “The RandR library and headers were not found”则需要在terminal里执行“sudo apt-get install libxrandr-dev”
+</code></pre>
+
+
+  <div class="more">
+    <a href="/ubuntu/ubuntu-14.04%E4%B8%8B%E7%BC%96%E8%AF%91GLFW3/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/cocos2d/cocos2d-html5%E4%BD%BF%E7%94%A8Ant%E6%B7%B7%E6%B7%86%E5%8E%8B%E7%BC%A9/">cocos2d-html5使用Ant混淆压缩</a> <span class="date">2014-05-28</span></h3>
+
+  <p>1、下载Apache Ant</p>
+
+<p>2、配置Ant环境</p>
+
+<p>　　ANT_HOME</p>
+
+<p>　　PATH=%PATH%;%ANT_HOME%\bin</p>
+
+<p>3、使用命令行界面，运行ant -version查看时候配置好</p>
+
+<p>　　<img src="http://images.cnitblog.com/blog/465204/201312/12213221-ddfb40e5c775479cb838e8abcb83ee7f.jpg" alt="" />
+</p>
+
+<p>4、切换到cocos2d-html5项目目录下</p>
+
+<p>　　<img src="http://images.cnitblog.com/blog/465204/201312/12213329-c8ab999933f34928ab921132b4d0feca.jpg" alt="" />
+</p>
+
+<p>5、执行ant</p>
+
+<p>　　<img src="http://images.cnitblog.com/blog/465204/201312/12213425-c7b0e759f1a941fca2475d864aedf7da.jpg" alt="" />
+</p>
+
+
+  <div class="more">
+    <a href="/cocos2d/cocos2d-html5%E4%BD%BF%E7%94%A8Ant%E6%B7%B7%E6%B7%86%E5%8E%8B%E7%BC%A9/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/golang/Golang-go-glgl-get%E9%94%99%E8%AF%AF/">Golang go-glgl get错误</a> <span class="date">2014-05-28</span></h3>
+
+  <p>由于gl使用了cgo，所以需要配置环境MinGW.</p>
+
+<p>gl需要glew支持，所以从官网下载glew-win，但是没有这个包内没有提供mingw使用.a文件。</p>
+
+<p>于是下载glew的源码.tar，先用MinGW make。</p>
+
+<p>然后再go get github.com/go-gl/gl</p>
+
+
+  <div class="more">
+    <a href="/golang/Golang-go-glgl-get%E9%94%99%E8%AF%AF/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/golang/Golang-archlinux%E4%B8%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Golang archlinux下环境配置</a> <span class="date">2014-05-28</span></h3>
+
+  <p>一、准备</p>
+
+<p>　　1）golang</p>
+
+<p>　　　　下载地址：https://code.google.com/p/go/</p>
+
+<p>　　2）liteide</p>
+
+<p>　　　　推荐下载源码自己编译，官方编译的可能在archlinux上因为qt更新问题出现异常。</p>
+
+<p>　　　　下载地址：</p>
+
+<pre><code>Source code ： https://github.com/visualfc/liteide
+
+Binary downloads ： http://code.google.com/p/golangide
+</code></pre>
+
+<p>　　3）git</p>
+
+<pre><code>安装：
+</code></pre>
+
+
+  <div class="more">
+    <a href="/golang/Golang-archlinux%E4%B8%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/golang/Go-GUI%E4%B8%8D%E6%98%BE%E7%A4%BA%E6%8E%A7%E5%88%B6%E5%8F%B0/">Go GUI不显示控制台</a> <span class="date">2014-05-28</span></h3>
+
+  <p>构建时加入参数
+     -ldflags &ldquo;-H windowsgui&rdquo;</p>
+
+<pre><code>eg：go build -ldflags &quot;-H windowsgui&quot; project.go
+</code></pre>
+
+
+  <div class="more">
+    <a href="/golang/Go-GUI%E4%B8%8D%E6%98%BE%E7%A4%BA%E6%8E%A7%E5%88%B6%E5%8F%B0/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/cocos2dx/Cocos2dx-3.0-xcode5.1-%E7%AB%96%E5%B1%8F/">Cocos2dx 3.0 xcode5.1 竖屏</a> <span class="date">2014-05-28</span></h3>
+
+  <p>1、设置cocos2dx竖屏：</p>
+
+<p>　　RootViewController.mm 中</p>
+
+<pre><code>- (BOOL) shouldAutorotate {
+    return NO;
+}
+</code></pre>
+
+<p>　
+    改为</p>
+
+<pre><code>- (BOOL) shouldAutorotate {
+    return YES;
+}
+</code></pre>
+
+<p>2、项目竖屏</p>
+
+<p>　　设置项目Targe中的Deployment Info 中的Device Orientation只勾选Portrait</p>
+
+
+  <div class="more">
+    <a href="/cocos2dx/Cocos2dx-3.0-xcode5.1-%E7%AB%96%E5%B1%8F/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/jdk配置/Archlinux-jdk7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Archlinux jdk7环境配置</a> <span class="date">2014-05-28</span></h3>
+
+  <p>一、<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">下载jdk</a></p>
+
+<p>二、解压 并且移动|复制到/usr/lib/jvm下</p>
+
+<p>三、在控制台输入　　</p>
+
+<pre><code>#kate /etc/profile.d/java.sh
+</code></pre>
+
+<p>四、编辑java.sh</p>
+
+<pre><code>#set java environment
+export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_45  #根据实际情况创建
+export JRE_HOME=/usr/lib/jvm/jdk1.7.0_45/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+</code></pre>
+
+
+  <div class="more">
+    <a href="/jdk配置/Archlinux-jdk7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="btn">read more..</a>
+  </div>
+</div>
+
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; nzlov 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

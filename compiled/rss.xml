@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<rss version="2.0">  <channel>
+    <title>迷的小屋</title>
+    <link>http://nzlov.github.io</link>
+    <pubDate>28 May 14 17:06 CST</pubDate>
+    <item>
+      <title>把Go程序变小的办法</title>
+      <link>http://nzlov.github.io/golang/%E6%8A%8AGo%E7%A8%8B%E5%BA%8F%E5%8F%98%E5%B0%8F%E7%9A%84%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;把Go程序变小的办法是：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;go build -ldflags “-s -w” (go install类似)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;-s 去掉符号表（然后panic时候的stack trace就没有任何文件名/行号信息了，&#xA;这个等价于普通C/C++程序被strip的效果）&lt;/p&gt;&#xA;&#xA;&lt;p&gt;-w 去掉DWARF调试信息，得到的程序就不能用gdb调试了。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;比如，server.go是一个简单的http server，用了&lt;code&gt;net/http&lt;/code&gt;包。&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;$ go build server.go&#xA;$ ls -l server&#xA;-rwxr-xr-x 1 minux staff 4507004 2012-10-25 14:16 server&#xA;$ go build -ldflags “-s -w” server.go &#xA;$ ls -l server&#xA;-rwxr-xr-x 1 minux staff 2839932 2012-10-25 14:16 server&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;-s和-w也可以分开使用，一般来说如果不打算用gdb调试，-w基本没啥损失。&#xA;-s的损失就有点大了。&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>动态口令系统</title>
+      <link>http://nzlov.github.io/动态口令/%E5%8A%A8%E6%80%81%E5%8F%A3%E4%BB%A4%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;ol&gt;&#xA;&lt;li&gt;HOTP(事件OTP)&lt;/li&gt;&#xA;&lt;li&gt;RFC4226&lt;/li&gt;&#xA;&lt;li&gt;TOTP(时间OTP)&lt;/li&gt;&#xA;&lt;li&gt;RFC6238&lt;/li&gt;&#xA;&lt;li&gt;OCRA(挑战与应答OTP)&lt;/li&gt;&#xA;&lt;li&gt;RFC6287&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>ubuntu 14.04下编译GLFW3</title>
+      <link>http://nzlov.github.io/ubuntu/ubuntu-14.04%E4%B8%8B%E7%BC%96%E8%AF%91GLFW3/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;1、安装cmake cmake－gui&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;sudo apt-get install cmake cmake-gui&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　　2、使用cmake生成Makefile&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;打开cmake gui，选择glfw3根目录，设置生成目录，然后点击“Configure”生成配置然后勾选“BUILD_SHARED_LIBS”，并修改“CMAKE_INSTALL_PREFIX”为“/usr”。再次点击“Configure”，然后点“Generate”。&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　　3、make，make install&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;使用terminal进入Makefile的生成目录，执行 “make” ，完成后再执行“sudo make install”完成安装。&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　 4、&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;go get -u github.com/go-gl/glfw3&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　　注意：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;如果报错 “The RandR library and headers were not found”则需要在terminal里执行“sudo apt-get install libxrandr-dev”&#xA;&#xA;如果报错 “The XInput library and headers were not found”则需要在terminal里执行“sudo apt-get install libxi-dev”&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>cocos2d-html5使用Ant混淆压缩</title>
+      <link>http://nzlov.github.io/cocos2d/cocos2d-html5%E4%BD%BF%E7%94%A8Ant%E6%B7%B7%E6%B7%86%E5%8E%8B%E7%BC%A9/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;1、下载Apache Ant&lt;/p&gt;&#xA;&#xA;&lt;p&gt;2、配置Ant环境&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　ANT_HOME&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　PATH=%PATH%;%ANT_HOME%\bin&lt;/p&gt;&#xA;&#xA;&lt;p&gt;3、使用命令行界面，运行ant -version查看时候配置好&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　&lt;img src=&#34;http://images.cnitblog.com/blog/465204/201312/12213221-ddfb40e5c775479cb838e8abcb83ee7f.jpg&#34; alt=&#34;&#34; /&gt;&#xA;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;4、切换到cocos2d-html5项目目录下&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　&lt;img src=&#34;http://images.cnitblog.com/blog/465204/201312/12213329-c8ab999933f34928ab921132b4d0feca.jpg&#34; alt=&#34;&#34; /&gt;&#xA;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;5、执行ant&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　&lt;img src=&#34;http://images.cnitblog.com/blog/465204/201312/12213425-c7b0e759f1a941fca2475d864aedf7da.jpg&#34; alt=&#34;&#34; /&gt;&#xA;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;6、编辑cocos2d.js文件&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　&lt;img src=&#34;http://images.cnitblog.com/blog/465204/201312/12213634-e488251a377a4c06b202157b1745e074.jpg&#34; alt=&#34;&#34; /&gt;&#xA;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;将 engineDir:&#39;../cocos2d/&#39; 以及 appFiles:[] 这两段注释掉，将 SingleEngineFile 取消注释并编辑后面的值为打包后的值。&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;7、成功！&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Golang go-glgl get错误</title>
+      <link>http://nzlov.github.io/golang/Golang-go-glgl-get%E9%94%99%E8%AF%AF/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;由于gl使用了cgo，所以需要配置环境MinGW.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;gl需要glew支持，所以从官网下载glew-win，但是没有这个包内没有提供mingw使用.a文件。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;于是下载glew的源码.tar，先用MinGW make。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;然后再go get github.com/go-gl/gl&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Golang archlinux下环境配置</title>
+      <link>http://nzlov.github.io/golang/Golang-archlinux%E4%B8%8B%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;一、准备&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　1）golang&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　　　下载地址：https://code.google.com/p/go/&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　2）liteide&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　　　推荐下载源码自己编译，官方编译的可能在archlinux上因为qt更新问题出现异常。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　　　下载地址：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;Source code ： https://github.com/visualfc/liteide&#xA;&#xA;Binary downloads ： http://code.google.com/p/golangide&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　　3）git&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;安装：&#xA;&#xA;#pacman -S git&#xA;&#xA;最好有github的帐号～并且导入ssh，现在golang的第三方库在github上。&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　　4）mercurial&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;安装：&#xA;&#xA;#pacman -S mercurial&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;二、配置环境&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　1）golang&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　　　archlinux中配置环境最好放到自启动中，在$HOME下会出问题。&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;#kate /etc/profile.d/go.sh&#xA;&#xA;#set go environment&#xA;export GOROOT=/home/nzlov/Software/go 　　#自己替换Go目录&#xA;export GOARCH=386　　　　　　　　　　　  #根据自己电脑设置386/amd64&#xA;export GOOS=linux&#xA;export GOPATH=/home/nzlov/Workspaces/Go  #根据自己的Go工作目录替换&#xA;export GOBIN=$GOPATH/bin&#xA;export PATH=$GOBIN:$PATH&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　&#xA;　2）gocode&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　　　配置好golang、git及mercurial后，打开控制台输入&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;go get github.com/nsf/gocode&#xA;&#xA;go install github.com/nsf/gocode &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　　3）liteide&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　　　解压后使用控制台进入liteide的目录&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　　　执行：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;cd build&#xA;./build_linux.sh&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　　　　等待编译完成。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　　　如果执行出现：error，QTDIR is null 则需要设置qt的目录 通常是 /usr/lib/qt4&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　完成！&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Go GUI不显示控制台</title>
+      <link>http://nzlov.github.io/golang/Go-GUI%E4%B8%8D%E6%98%BE%E7%A4%BA%E6%8E%A7%E5%88%B6%E5%8F%B0/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;构建时加入参数&#xA;     -ldflags &amp;ldquo;-H windowsgui&amp;rdquo;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;eg：go build -ldflags &amp;quot;-H windowsgui&amp;quot; project.go&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Cocos2dx 3.0 xcode5.1 竖屏</title>
+      <link>http://nzlov.github.io/cocos2dx/Cocos2dx-3.0-xcode5.1-%E7%AB%96%E5%B1%8F/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;1、设置cocos2dx竖屏：&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　RootViewController.mm 中&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;- (BOOL) shouldAutorotate {&#xA;    return NO;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;　&#xA;    改为&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;- (BOOL) shouldAutorotate {&#xA;    return YES;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;2、项目竖屏&lt;/p&gt;&#xA;&#xA;&lt;p&gt;　　设置项目Targe中的Deployment Info 中的Device Orientation只勾选Portrait&lt;/p&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>Archlinux jdk7环境配置</title>
+      <link>http://nzlov.github.io/jdk配置/Archlinux-jdk7%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>2014-05-28 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;一、&lt;a href=&#34;http://www.oracle.com/technetwork/java/javase/downloads/index.html&#34;&gt;下载jdk&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;二、解压 并且移动|复制到/usr/lib/jvm下&lt;/p&gt;&#xA;&#xA;&lt;p&gt;三、在控制台输入　　&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;#kate /etc/profile.d/java.sh&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;四、编辑java.sh&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;#set java environment&#xA;export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_45  #根据实际情况创建&#xA;export JRE_HOME=/usr/lib/jvm/jdk1.7.0_45/jre&#xA;export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&#xA;export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Golang archlinux下环境配置</title>
+  
+    <meta name="author" content="nzlov">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">迷的小屋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">年轮</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">标签</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">种类</a></li>
+
+
+            
+              
+
+
+  <li><a href="/pages">叶子</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">关于我</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>Golang archlinux下环境配置 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>一、准备</p>
+
+<p>　　1）golang</p>
+
+<p>　　　　下载地址：https://code.google.com/p/go/</p>
+
+<p>　　2）liteide</p>
+
+<p>　　　　推荐下载源码自己编译，官方编译的可能在archlinux上因为qt更新问题出现异常。</p>
+
+<p>　　　　下载地址：</p>
+
+<pre><code>Source code ： https://github.com/visualfc/liteide
+
+Binary downloads ： http://code.google.com/p/golangide
+</code></pre>
+
+<p>　　3）git</p>
+
+<pre><code>安装：
+
+#pacman -S git
+
+最好有github的帐号～并且导入ssh，现在golang的第三方库在github上。
+</code></pre>
+
+<p>　　4）mercurial</p>
+
+<pre><code>安装：
+
+#pacman -S mercurial
+</code></pre>
+
+<p>二、配置环境</p>
+
+<p>　　1）golang</p>
+
+<p>　　　　archlinux中配置环境最好放到自启动中，在$HOME下会出问题。</p>
+
+<pre><code>#kate /etc/profile.d/go.sh
+
+#set go environment
+export GOROOT=/home/nzlov/Software/go 　　#自己替换Go目录
+export GOARCH=386　　　　　　　　　　　  #根据自己电脑设置386/amd64
+export GOOS=linux
+export GOPATH=/home/nzlov/Workspaces/Go  #根据自己的Go工作目录替换
+export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:$PATH
+</code></pre>
+
+<p>　
+　2）gocode</p>
+
+<p>　　　　配置好golang、git及mercurial后，打开控制台输入</p>
+
+<pre><code>go get github.com/nsf/gocode
+
+go install github.com/nsf/gocode 
+</code></pre>
+
+<p>　　3）liteide</p>
+
+<p>　　　　解压后使用控制台进入liteide的目录</p>
+
+<p>　　　　执行：</p>
+
+<pre><code>cd build
+./build_linux.sh
+</code></pre>
+
+<p>　　　　等待编译完成。</p>
+
+<p>　　　　如果执行出现：error，QTDIR is null 则需要设置qt的目录 通常是 /usr/lib/qt4</p>
+
+<p>　　完成！</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/golang/Golang-go-glgl-get%E9%94%99%E8%AF%AF/" title="Golang go-glgl get错误">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/golang/Go-GUI%E4%B8%8D%E6%98%BE%E7%A4%BA%E6%8E%A7%E5%88%B6%E5%8F%B0/" title="Go GUI不显示控制台">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2014-05-28</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#golang-ref">golang <span>5</span></a>
+</li>
+    
+      <li>
+  <a href="/categories/#archlinux-ref">archlinux <span>1</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#golang-ref">golang <span>5</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#archlinux-ref">archlinux <span>2</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; nzlov 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
