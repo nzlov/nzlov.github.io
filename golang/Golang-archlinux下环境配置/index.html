@@ -87,13 +87,13 @@
 
 <p>　　1）golang</p>
 
-<p>　　　　下载地址：https://code.google.com/p/go/</p>
+<p>下载地址：https://code.google.com/p/go/</p>
 
 <p>　　2）liteide</p>
 
-<p>　　　　推荐下载源码自己编译，官方编译的可能在archlinux上因为qt更新问题出现异常。</p>
+<p>推荐下载源码自己编译，官方编译的可能在archlinux上因为qt更新问题出现异常。</p>
 
-<p>　　　　下载地址：</p>
+<p>下载地址：</p>
 
 <pre><code>Source code ： https://github.com/visualfc/liteide
 
@@ -102,25 +102,25 @@ Binary downloads ： http://code.google.com/p/golangide
 
 <p>　　3）git</p>
 
-<pre><code>安装：
+<p>安装：</p>
 
-#pacman -S git
-
-最好有github的帐号～并且导入ssh，现在golang的第三方库在github上。
+<pre><code>#pacman -S git
 </code></pre>
+
+<p>最好有github的帐号～并且导入ssh，现在golang的第三方库在github上。</p>
 
 <p>　　4）mercurial</p>
 
-<pre><code>安装：
+<p>安装：</p>
 
-#pacman -S mercurial
+<pre><code>#pacman -S mercurial
 </code></pre>
 
 <p>二、配置环境</p>
 
 <p>　　1）golang</p>
 
-<p>　　　　archlinux中配置环境最好放到自启动中，在$HOME下会出问题。</p>
+<p>archlinux中配置环境最好放到自启动中，在$HOME下会出问题。</p>
 
 <pre><code>#kate /etc/profile.d/go.sh
 
@@ -136,7 +136,7 @@ export PATH=$GOBIN:$PATH
 <p>　
 　2）gocode</p>
 
-<p>　　　　配置好golang、git及mercurial后，打开控制台输入</p>
+<p>配置好golang、git及mercurial后，打开控制台输入</p>
 
 <pre><code>go get github.com/nsf/gocode
 
@@ -145,19 +145,18 @@ go install github.com/nsf/gocode
 
 <p>　　3）liteide</p>
 
-<p>　　　　解压后使用控制台进入liteide的目录</p>
+<p>解压后使用控制台进入liteide的目录</p>
 
-<p>　　　　执行：</p>
+<p>执行：</p>
 
 <pre><code>cd build
 ./build_linux.sh
 </code></pre>
 
-<p>　　　　等待编译完成。</p>
+<p>等待编译完成。
+ 如果执行出现：error，QTDIR is null 则需要设置qt的目录 通常是 /usr/lib/qt4</p>
 
-<p>　　　　如果执行出现：error，QTDIR is null 则需要设置qt的目录 通常是 /usr/lib/qt4</p>
-
-<p>　　完成！</p>
+<p>完成！</p>
 
     <hr>
     <div class="pagination">
